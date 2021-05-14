@@ -21,32 +21,27 @@ class MainActivity : AppCompatActivity() {
 
         binding.addButton.setOnClickListener {
 
-            var input = listOf<Any>(binding.editTextTextPersonName.text,
-                binding.editTextTextPersonName2.text,
-                binding.editTextTextEmailAddress.text,
-                binding.ageEditText.text)
-                personList.add(input)
+            val input = listOf<Any>(
+                binding.editTextTextPersonName.text.toString(),
+                binding.editTextTextPersonName2.text.toString(),
+                binding.editTextTextEmailAddress.text.toString(),
+                binding.ageEditText.text.toString()
+            )
 
             if (personList.isEmpty() && input in personList) {
 
                 binding.succesTextView.visibility = View.INVISIBLE
                 binding.failedTextView.visibility = View.INVISIBLE
-                d("tag", "${personList}")
+                d("tag", "$personList")
 
                 Toast.makeText(this,"User already exists",Toast.LENGTH_SHORT).show()
                 binding.failedTextView.visibility = View.VISIBLE
-
 
             }
             else {
 
                 binding.succesTextView.visibility = View.INVISIBLE
                 binding.failedTextView.visibility = View.INVISIBLE
-
-                val input = listOf<Any>(binding.editTextTextPersonName.text,
-                    binding.editTextTextPersonName2.text,
-                    binding.editTextTextEmailAddress.text,
-                    binding.ageEditText.text)
 
                 personList.add(input)
 
