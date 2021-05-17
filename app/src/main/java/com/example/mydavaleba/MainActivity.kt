@@ -11,6 +11,8 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private var personList = ArrayList<Any>()
+    var active: Int = 0
+    var deleted: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,13 +24,14 @@ class MainActivity : AppCompatActivity() {
         binding.addButton.setOnClickListener {
 
             val input = listOf<Any>(
+
                 binding.editTextTextPersonName.text.toString(),
                 binding.editTextTextPersonName2.text.toString(),
                 binding.editTextTextEmailAddress.text.toString(),
                 binding.ageEditText.text.toString()
             )
 
-            if (personList.isEmpty() && input in personList) {
+            if (personList.isNotEmpty() && input in personList) {
 
                 binding.succesTextView.visibility = View.INVISIBLE
                 binding.failedTextView.visibility = View.INVISIBLE
@@ -47,6 +50,8 @@ class MainActivity : AppCompatActivity() {
 
                 Toast.makeText(this,"User added successfully",Toast.LENGTH_SHORT).show()
                 binding.succesTextView.visibility = View.VISIBLE
+                active += 1
+                binding.active.text = active.toString()
                 d("tag", "$personList")
 
             }
@@ -54,7 +59,22 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.removeButton.setOnClickListener {
-            if (personList.isNotEmpty()) {
+
+            val input = listOf<Any>(
+                binding.editTextTextPersonName.text.toString(),
+                binding.editTextTextPersonName2.text.toString(),
+                binding.editTextTextEmailAddress.text.toString(),
+                binding.ageEditText.text.toString()
+            )
+
+
+            if (personList.isNotEmpty() && input in personList) {
+
+                personList.remove(input)
+                deleted += 1
+                active -= 1
+                binding.active.text = active.toString()
+                binding.deleted.text = deleted.toString()
 
             }
         }
