@@ -9,4 +9,8 @@
     <string name="update">update</string>
     <string name="remove">remove</string>
     <string name="add">add</string>
+    <string name="deleted">Deleted</string>
+    <string name="active">Active</string>
+    <string name="_0">0</string>
+    <string name="person_info">Person Info</string>
 </resources>

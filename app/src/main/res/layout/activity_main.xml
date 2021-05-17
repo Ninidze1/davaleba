@@ -8,15 +8,15 @@
     tools:context=".MainActivity">
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/nameEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="100dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/input_shape"
         android:ems="10"
+        android:fontFamily="@font/montera_regular"
         android:hint="@string/first_name"
         android:inputType="textPersonName"
         android:paddingStart="25dp"
@@ -25,20 +25,21 @@
         android:paddingBottom="14dp"
         android:text=""
         android:textColorHint="#6E6E6E"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName2"
+        app:layout_constraintBottom_toTopOf="@+id/lastNameEditText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@id/deletedCount"
         app:layout_constraintVertical_bias="0.3"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/lastNameEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="16dp"
+        android:fontFamily="@font/montera_regular"
         android:background="@drawable/input_shape"
         android:ems="10"
         android:hint="@string/last_name"
@@ -48,15 +49,17 @@
         android:paddingEnd="14dp"
         android:paddingBottom="14dp"
         android:textColorHint="#6E6E6E"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextEmailAddress"
+        app:layout_constraintBottom_toTopOf="@+id/eMailEditText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editTextTextPersonName" />
+        app:layout_constraintTop_toBottomOf="@id/nameEditText" />
 
     <TextView
         android:id="@+id/succesTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:fontFamily="@font/montera_regular"
         android:text="@string/succes"
         android:textColor="#30BD37"
         android:textSize="50sp"
@@ -70,6 +73,8 @@
         android:id="@+id/failedTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:fontFamily="@font/proxima_extra_bold"
         android:text="@string/failed"
         android:textColor="#FF0000"
         android:textSize="50sp"
@@ -80,7 +85,7 @@
         app:layout_constraintTop_toBottomOf="@+id/removeButton" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress"
+        android:id="@+id/eMailEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -89,6 +94,7 @@
         android:background="@drawable/input_shape"
         android:ems="10"
         android:hint="@string/email"
+        android:fontFamily="@font/montera_regular"
         android:inputType="textEmailAddress"
         android:paddingStart="25dp"
         android:paddingTop="14dp"
@@ -98,7 +104,7 @@
         app:layout_constraintBottom_toTopOf="@+id/ageEditText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editTextTextPersonName2" />
+        app:layout_constraintTop_toBottomOf="@id/lastNameEditText" />
 
     <EditText
         android:id="@+id/ageEditText"
@@ -111,6 +117,7 @@
         android:ems="10"
         android:hint="@string/age"
         android:inputType="number"
+        android:fontFamily="@font/montera_regular"
         android:paddingStart="25dp"
         android:paddingTop="14dp"
         android:paddingEnd="14dp"
@@ -119,25 +126,27 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editTextTextEmailAddress" />
+        app:layout_constraintTop_toBottomOf="@id/eMailEditText" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_end="40dp" />
+        app:layout_constraintGuide_percent="1" />
 
     <Button
         android:id="@+id/addButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="40dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/button_shape"
         android:backgroundTint="@color/main_color"
+        android:fontFamily="@font/proxima_semi_bold"
+        android:textSize="17sp"
         android:text="@string/add"
+        app:layout_constraintBottom_toTopOf="@id/succesTextView"
         app:layout_constraintEnd_toStartOf="@id/removeButton"
         app:layout_constraintStart_toStartOf="@+id/ageEditText"
         app:layout_constraintTop_toBottomOf="@+id/ageEditText" />
@@ -146,11 +155,13 @@
         android:id="@+id/removeButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/button_shape"
         android:backgroundTint="@color/main_color"
         android:text="@string/remove"
+        android:fontFamily="@font/proxima_semi_bold"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toTopOf="@id/succesTextView"
         app:layout_constraintEnd_toStartOf="@id/updateButton"
         app:layout_constraintStart_toEndOf="@id/addButton"
         app:layout_constraintTop_toBottomOf="@+id/ageEditText" />
@@ -159,35 +170,85 @@
         android:id="@+id/updateButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
         android:layout_marginEnd="24dp"
         android:background="@drawable/button_shape"
         android:backgroundTint="@color/main_color"
         android:text="@string/update"
+        android:fontFamily="@font/proxima_bold"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toTopOf="@id/succesTextView"
         app:layout_constraintEnd_toEndOf="@+id/ageEditText"
         app:layout_constraintStart_toEndOf="@id/removeButton"
         app:layout_constraintTop_toBottomOf="@+id/ageEditText" />
 
     <TextView
-        android:id="@+id/active"
+        android:id="@+id/activeCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0"
+        android:fontFamily="@font/proxima_extra_bold"
+        android:text="@string/_0"
         android:textSize="40sp"
-        app:layout_constraintStart_toEndOf="@id/deleted"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/nameEditText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/deletedCount"
+        app:layout_constraintTop_toTopOf="@id/guideline2" />
 
     <TextView
-        android:id="@+id/deleted"
+        android:id="@+id/deletedCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0"
+        android:layout_marginEnd="45dp"
+        android:fontFamily="@font/proxima_extra_bold"
+        android:text="@string/_0"
         android:textSize="40sp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName"
-        app:layout_constraintEnd_toStartOf="@id/active"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/nameEditText"
+        app:layout_constraintEnd_toStartOf="@id/activeCount"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guideline2" />
+
+    <TextView
+        android:id="@+id/activeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/active"
+        android:textSize="20sp"
+        android:fontFamily="@font/proxima_black"
+        app:layout_constraintBottom_toBottomOf="@+id/activeCount"
+        app:layout_constraintStart_toEndOf="@+id/activeCount"
+        app:layout_constraintTop_toTopOf="@+id/activeCount" />
+
+    <TextView
+        android:id="@+id/deletedTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/proxima_black"
+        android:text="@string/deleted"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/deletedCount"
+        app:layout_constraintEnd_toStartOf="@+id/deletedCount"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintTop_toTopOf="@+id/deletedCount"
+        app:layout_constraintVertical_bias="0.39" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="42dp" />
+
+    <ImageView
+        android:id="@+id/detailsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_technical_support"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.93"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
